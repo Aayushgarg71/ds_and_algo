@@ -6,7 +6,7 @@ public class Adjlist_inUndirected {
 		// TODO Auto-generated method stub
 	Scanner sc = new Scanner(System.in);
 	System.out.println("Enter no.of nodes");
-	public int a= sc.nextInt();
+	 int a= sc.nextInt();
 	LinkedList obj[]= new LinkedList[a];
 	for(int i=0;i<a;i++) {
 		obj[i]=new LinkedList();

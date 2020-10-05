@@ -1,15 +1,15 @@
 package BST;
 import java.util.*;
- class Node{
-	Node left;
-	Node right;
-	int data;
-	public Node(int a){
-	data=a;
-	left=null;
-	right=null;
-	}
-}
+// class Node{
+//	Node left;
+//	Node right;
+//	int data;
+//	public Node(int a){
+//	data=a;
+//	left=null;
+//	right=null;
+//	}
+//}
 public class Implementation {
 	
 	static Node root=null;
@@ -46,6 +46,55 @@ public class Implementation {
 			inorder1(root1.right);
 		}
 	}
+	static void delete(int a) {
+		Node current=root;
+		Stack <Node> q = new Stack<Node>();
+		q.push(current);
+		System.out.println("yes");
+//		if(current==null) {
+//			return;
+//		}
+//		else {
+			for(;;) {
+				if(a==current.data) {
+					Node temp = q .peek();
+					//q.remove();
+					if(current.left==null) {
+						if(temp.right==current)
+							temp.right=current.right;
+						else
+							temp.left=current.right;
+						System.out.println("cr");
+						break;
+					}
+					if(current.right==null) {
+						if(temp.right==current)
+							temp.right=current.left;
+						
+						else
+							temp.left=current.left;
+						
+						System.out.println("cl");
+						break;
+					}
+					if(temp.right==current)
+						temp.right=current.left;
+					else
+						temp.left=current.left;
+					break;
+				}
+				if(a>current.data) {
+					q.push(current);
+					current=current.right;
+					
+				}
+				if(a<current.data) {
+					q.push(current);
+					current=current.left;
+				}
+			}
+		//}
+	}
 	
 	public static void main(String args[]) {
 	Scanner sc = new Scanner(System.in);
@@ -56,7 +105,7 @@ public class Implementation {
 			insert(sc.nextInt());
 		}
 		if(a==2) {
-			//delete(sc.nextInt());
+			delete(sc.nextInt());
 		}
 		if(a==3) {
 			//search(sc.nextInt());
